@@ -30,3 +30,8 @@ yarn start
 - issue#番号
   - 実装する issue 番号をつける
   - 完了したらdevelopにPull Requestを出してマージする
+
+## VSCodeに入れて欲しい拡張機能
+- prettier
+- material icon
+- ES7+ React/Redux/React-Native snippets
