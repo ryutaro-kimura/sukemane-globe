@@ -1,11 +1,30 @@
 import React, { useState } from 'react'
 import GoogleMapComponent from '../components/GoogleMapComponent'
+import { Canvas } from '@react-three/fiber'
+import { useLoader } from '@react-three/fiber'
+import * as THREE from 'three'
+import img from './earthmap1k.jpg'
 
-function App() {
+const App = () => {
+  const texture = useLoader(THREE.TextureLoader, img)
   return (
-    <div className="App">
+    <>
       <GoogleMapComponent />
-    </div>
+      <div id="canvas-container">
+        <Canvas
+          camera={{
+            position: [0, 0, 1000],
+            aspect: 960 / 540
+          }}
+        >
+          <mesh>
+            <sphereGeometry args={[300]} />
+            <meshStandardMaterial map={texture} />
+          </mesh>
+          <directionalLight color="white" position={[1, 1, 1]} />
+        </Canvas>
+      </div>
+    </>
   )
 }
 
