@@ -1,14 +1,9 @@
 import GoogleMapComponent from '../components/GoogleMapComponent'
+import { Glob } from '../components/Glob'
 import { Canvas } from '@react-three/fiber'
-import { useLoader } from '@react-three/fiber'
-import * as THREE from 'three'
-import img from './earthmap1k.jpg'
-import { Stars } from "@react-three/drei"
-
+import { Stars } from '@react-three/drei'
 const App = () => {
-  const texture = useLoader(THREE.TextureLoader, img)
-  const count = 1000;
-    return (
+  return (
     <>
       <GoogleMapComponent />
       <div id="canvas-container">
@@ -18,18 +13,13 @@ const App = () => {
             aspect: 960 / 540
           }}
         >
-          <mesh>
-            {/* @react-three/dreiをインストールしてStarsを使った！ */}
-          <Stars radius={300} depth={200} count={5000} factor={7} saturation={0} fade={true} /> 
-            <sphereGeometry args={[300]} />
-            <meshStandardMaterial map={texture} />
-          </mesh>
+          <Stars radius={300} depth={200} count={50000} factor={7} saturation={0} fade={true} />
+          <Glob />
           <directionalLight color="white" position={[1, 1, 1]} />
         </Canvas>
       </div>
     </>
   )
 }
-
 
 export default App
