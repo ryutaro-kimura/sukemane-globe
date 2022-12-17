@@ -3,8 +3,9 @@ import { useFrame, useLoader } from '@react-three/fiber'
 import { useRef } from 'react'
 import * as THREE from 'three'
 import img from '../page/earthmap1k.jpg'
+import GoogleMapComponent from './GoogleMapComponent'
 
-export const Glob = () => {
+export const Globe = () => {
   const texture = useLoader(THREE.TextureLoader, img)
   const earthRef = useRef<THREE.Mesh>(null)
   useFrame(({ clock }) => {

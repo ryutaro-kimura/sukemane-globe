@@ -1,11 +1,10 @@
 import GoogleMapComponent from '../components/GoogleMapComponent'
-import { Glob } from '../components/Glob'
+import { Globe } from '../components/Globe'
 import { Canvas } from '@react-three/fiber'
 import { Stars } from '@react-three/drei'
 const App = () => {
   return (
     <>
-      <GoogleMapComponent />
       <div id="canvas-container">
         <Canvas
           camera={{
@@ -14,7 +13,7 @@ const App = () => {
           }}
         >
           <Stars radius={300} depth={200} count={50000} factor={7} saturation={0} fade={true} />
-          <Glob />
+          <Globe />
           <directionalLight color="white" position={[1, 1, 1]} />
         </Canvas>
       </div>
