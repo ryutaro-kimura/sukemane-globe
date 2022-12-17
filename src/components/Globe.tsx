@@ -10,7 +10,7 @@ export const Globe = () => {
   const earthRef = useRef<THREE.Mesh>(null)
   useFrame(({ clock }) => {
     const elapsedTime = clock.getElapsedTime()
-    earthRef.current!.rotation.y = elapsedTime / 6
+    earthRef.current!.rotation.y = elapsedTime / 30
   })
   return (
     <mesh ref={earthRef}>
@@ -21,7 +21,7 @@ export const Globe = () => {
         enableZoom={true}
         enablePan={true}
         enableRotate={true}
-        zoomSpeed={0.3}
+        zoomSpeed={0.2}
         panSpeed={0.5}
         rotateSpeed={0.4}
       />
