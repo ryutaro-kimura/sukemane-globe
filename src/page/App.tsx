@@ -4,6 +4,7 @@ import { Canvas } from '@react-three/fiber'
 import { Stars } from '@react-three/drei'
 import { Loading } from '../components/Loading'
 import { useState } from 'react'
+import { Pin } from '../components/Pin'
 
 const App = () => {
   const [isLoading, setLoading] = useState<boolean>(true)

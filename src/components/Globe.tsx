@@ -1,9 +1,16 @@
 import { OrbitControls } from '@react-three/drei'
-import { useFrame, useLoader } from '@react-three/fiber'
+import { useFrame, useLoader, Vector3 } from '@react-three/fiber'
 import { useRef } from 'react'
 import * as THREE from 'three'
 import img from '../page/earthmap1k.jpg'
 import GoogleMapComponent from './GoogleMapComponent'
+import { Pin } from './Pin'
+
+export type AreaInfo = {
+  name: string
+  position: Vector3
+  population: number
+}
 
 export const Globe = () => {
   const texture = useLoader(THREE.TextureLoader, img)
@@ -12,9 +19,11 @@ export const Globe = () => {
     const elapsedTime = clock.getElapsedTime()
     earthRef.current!.rotation.y = elapsedTime / 30
   })
+  const kyushu: AreaInfo = { name: 'kyushu', position: [-290, 280, -330], population: 20 }
   return (
     <mesh ref={earthRef}>
       <ambientLight intensity={0.5} />
+      <Pin areaInfo={kyushu} />
       <sphereGeometry args={[500]} />
       <meshStandardMaterial map={texture} roughness={0.7} />
       <OrbitControls
