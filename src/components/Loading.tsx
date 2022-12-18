@@ -5,12 +5,6 @@ export const Loading = () => {
   const [progress, setProgress] = useState<number>(0)
   const style = { '--value': progress } as React.CSSProperties
 
-  // for (let percent = 0; percent < 100; percent += 5) {
-  //   setProgress(percent)
-  //   setTimeout(() => {
-  //     return null
-  //   }, 100)
-  // }
   useEffect(() => {
     let percent: number
     if (progress < 100) {
