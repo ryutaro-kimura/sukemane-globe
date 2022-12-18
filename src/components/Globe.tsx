@@ -15,10 +15,10 @@ export type AreaInfo = {
 export const Globe = () => {
   const texture = useLoader(THREE.TextureLoader, img)
   const earthRef = useRef<THREE.Mesh>(null)
-  // useFrame(({ clock }) => {
-  //   const elapsedTime = clock.getElapsedTime()
-  //   earthRef.current!.rotation.y = elapsedTime / 30
-  // })
+  useFrame(({ clock }) => {
+    const elapsedTime = clock.getElapsedTime()
+    earthRef.current!.rotation.y = elapsedTime / 30
+  })
   const kyushu: AreaInfo = { name: 'kyushu', position: [-290, 280, -330], population: 20 }
   return (
     <mesh ref={earthRef}>
