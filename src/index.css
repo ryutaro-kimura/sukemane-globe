@@ -2,6 +2,9 @@
 @tailwind components;
 @tailwind utilities;
 
+#root{
+  background-color: #01040c;
+}
 body {
   margin: 0;
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
@@ -14,4 +17,9 @@ body {
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
+}
+#canvas-container {
+  width: 100vw;
+  height: 100vh;
+  background-image: none;
 }
