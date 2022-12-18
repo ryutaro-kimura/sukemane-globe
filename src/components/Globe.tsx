@@ -6,9 +6,10 @@ import img from '../page/earthmap1k.jpg'
 import GoogleMapComponent from './GoogleMapComponent'
 import { Pin } from './Pin'
 
-type AreaInfo = {
+export type AreaInfo = {
   name: string
   position: Vector3
+  population: number
 }
 
 export const Globe = () => {
@@ -18,7 +19,7 @@ export const Globe = () => {
   //   const elapsedTime = clock.getElapsedTime()
   //   earthRef.current!.rotation.y = elapsedTime / 30
   // })
-  const kyushu: AreaInfo = {name:"kyushu",position:[-290, 280, -330]}
+  const kyushu: AreaInfo = { name: 'kyushu', position: [-290, 280, -330], population: 20 }
   return (
     <mesh ref={earthRef}>
       <ambientLight intensity={0.5} />
