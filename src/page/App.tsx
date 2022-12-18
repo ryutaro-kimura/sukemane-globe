@@ -2,8 +2,18 @@ import GoogleMapComponent from '../components/GoogleMapComponent'
 import { Globe } from '../components/Globe'
 import { Canvas } from '@react-three/fiber'
 import { Stars } from '@react-three/drei'
+import { Loading } from '../components/Loading'
+import { useState } from 'react'
 import { Pin } from '../components/Pin'
+
 const App = () => {
+  const [isLoading, setLoading] = useState<boolean>(true)
+  setTimeout(() => {
+    setLoading(false)
+  }, 3000)
+  if (isLoading) {
+    return <Loading />
+  }
   return (
     <>
       <div id="canvas-container">
