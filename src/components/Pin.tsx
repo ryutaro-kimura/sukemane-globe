@@ -1,14 +1,23 @@
-import { OrbitControls } from '@react-three/drei'
-import { useFrame } from '@react-three/fiber'
+import { Html, OrbitControls } from '@react-three/drei'
+import { useFrame, Vector3 } from '@react-three/fiber'
 import { useRef, useState } from 'react'
 
-export const Pin = () => {
+type AreaInfo = {
+  name: string
+  position: Vector3
+}
+
+type Props = {
+  areaInfo: AreaInfo
+}
+
+export const Pin: React.FC<Props> = ({ areaInfo }) => {
   const [hovered, setHovered] = useState<boolean>(false)
   const [clicked, setClicked] = useState(false)
 
   return (
     <mesh
-      position={[-290, 280, -330]}
+      position={areaInfo.position}
       scale={clicked ? 200 : 100}
       onClick={() => setClicked(!clicked)}
       onPointerOver={() => setHovered(true)}
@@ -16,14 +25,10 @@ export const Pin = () => {
     >
       <boxGeometry args={[0.2, 0.1, 0.2]} />
       <meshStandardMaterial color={hovered ? 'hotpink' : 'orange'} />
-      <OrbitControls
-        enableZoom={true}
-        enablePan={true}
-        enableRotate={true}
-        zoomSpeed={0.2}
-        panSpeed={0.5}
-        rotateSpeed={0.4}
-      />
+      <Html className="text-red-600 text-4"  distanceFactor={10}>
+        {/* {text} */}
+        九州
+      </Html>
     </mesh>
   )
 }
