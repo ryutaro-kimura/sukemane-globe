@@ -20,10 +20,12 @@ export const Globe = () => {
     earthRef.current!.rotation.y = elapsedTime / 30
   })
   const kyushu: AreaInfo = { name: 'kyushu', position: [-290, 280, -330], population: 20 }
+  const kanto: AreaInfo = { name: 'kanto', position: [-320, 300, -270], population: 40 }
   return (
     <mesh ref={earthRef}>
       <ambientLight intensity={0.5} />
       <Pin areaInfo={kyushu} />
+      <Pin areaInfo={kanto} />
       <sphereGeometry args={[500]} />
       <meshStandardMaterial map={texture} roughness={0.7} />
       <OrbitControls

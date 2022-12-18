@@ -22,7 +22,9 @@ export const Pin: React.FC<Props> = ({ areaInfo }) => {
       onPointerOver={() => setHovered(true)}
       onPointerOut={() => setHovered(false)}
     >
-      <boxGeometry args={[0.1, 0.1, 0.1]} />
+      <boxGeometry
+        args={[0.2 * (areaInfo.population / 40), 0.2 * (areaInfo.population / 40), 0.2 * (areaInfo.population / 40)]}
+      />
       <meshStandardMaterial color={hovered ? 'hotpink' : 'orange'} />
       {hovered ? (
         <Text rotation={rotation} position={[0, 0.1, -0.3]} font="/Roboto-Black.ttf" fontSize={0.1} color={'#fff'}>
