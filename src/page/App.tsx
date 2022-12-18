@@ -2,6 +2,7 @@ import GoogleMapComponent from '../components/GoogleMapComponent'
 import { Globe } from '../components/Globe'
 import { Canvas } from '@react-three/fiber'
 import { Stars } from '@react-three/drei'
+import { Pin } from '../components/Pin'
 const App = () => {
   return (
     <>
