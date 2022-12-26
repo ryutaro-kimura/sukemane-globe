@@ -1,6 +1,6 @@
 import { OrbitControls } from '@react-three/drei'
 import { Euler, useFrame, useLoader, Vector3 } from '@react-three/fiber'
-import { useEffect, useRef } from 'react'
+import { useRef } from 'react'
 import * as THREE from 'three'
 import img from '../page/earthmap1k.jpg'
 import { Pin } from './Pin'
@@ -16,7 +16,6 @@ export const Globe = () => {
   const rotation: Euler = new THREE.Euler(0, Math.PI / 100, 0)
   const earthRef = useRef<THREE.Mesh>(null)
   useFrame(({ clock }) => {
-    // earthRef.current!.rotation.y = 750
     earthRef.current!.rotation.z = 0.35
     const elapsedTime = clock.getElapsedTime()
     earthRef.current!.rotation.y = 749.85 + elapsedTime / 30
