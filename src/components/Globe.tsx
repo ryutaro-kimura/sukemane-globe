@@ -1,6 +1,6 @@
 import { OrbitControls } from '@react-three/drei'
-import { useFrame, useLoader, Vector3 } from '@react-three/fiber'
-import { useRef } from 'react'
+import { Euler, useFrame, useLoader, Vector3 } from '@react-three/fiber'
+import { useEffect, useRef } from 'react'
 import * as THREE from 'three'
 import img from '../page/earthmap1k.jpg'
 import { Pin } from './Pin'
@@ -13,15 +13,19 @@ export type AreaInfo = {
 
 export const Globe = () => {
   const texture = useLoader(THREE.TextureLoader, img)
+  const rotation: Euler = new THREE.Euler(0, Math.PI / 100, 0)
   const earthRef = useRef<THREE.Mesh>(null)
   useFrame(({ clock }) => {
+    // earthRef.current!.rotation.y = 750
+    earthRef.current!.rotation.z = 0.35
     const elapsedTime = clock.getElapsedTime()
-    earthRef.current!.rotation.y = elapsedTime / 30
+    earthRef.current!.rotation.y = 749.85 + elapsedTime / 30
+    console.log(earthRef.current!.rotation.y)
   })
   const kyushu: AreaInfo = { name: 'kyushu', position: [-290, 280, -330], population: 20 }
   const kanto: AreaInfo = { name: 'kanto', position: [-320, 300, -270], population: 40 }
   return (
-    <mesh ref={earthRef}>
+    <mesh ref={earthRef} rotation={rotation}>
       <ambientLight intensity={0.5} />
       <Pin areaInfo={kyushu} />
       <Pin areaInfo={kanto} />
