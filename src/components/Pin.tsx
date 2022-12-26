@@ -1,8 +1,7 @@
-import { Stage, Text } from '@react-three/drei'
-import { Euler, useFrame, Vector3 } from '@react-three/fiber'
-import { useRef, useState } from 'react'
+import { Text } from '@react-three/drei'
+import { Euler } from '@react-three/fiber'
+import { useState } from 'react'
 import { AreaInfo } from './Globe'
-import RedPinModel from './Model/PinModel'
 import * as THREE from 'three'
 
 type Props = {

@@ -3,7 +3,6 @@ import { useFrame, useLoader, Vector3 } from '@react-three/fiber'
 import { useRef } from 'react'
 import * as THREE from 'three'
 import img from '../page/earthmap1k.jpg'
-import GoogleMapComponent from './GoogleMapComponent'
 import { Pin } from './Pin'
 
 export type AreaInfo = {
